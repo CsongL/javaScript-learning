@@ -89,7 +89,7 @@ AuthController.checkAuth = function() {
 		.fail(this.rejected.bind(this))
 	}
 }
-AuthController.server(url, data) {
+AuthController.server = function(url, data) {
 	return $.ajax({
 		url: url,
 		data: data
@@ -101,3 +101,23 @@ AuthController.accepted = function() {
 AuthController.rejected = function(err) {
 	this.failure('Auth Failed: ' + err);
 }
+
+//  附录的 类代码
+class C {
+	constructor() {
+	    this.num = Math.random()
+	}
+	rand() {
+		console.log(this.num)
+	}
+}
+
+let c1 = new C()
+c1.rand()
+C.prototype.rand = function() {
+	console.log(Math.round(this.num * 1000))
+}
+let c2 = new C()
+c2.rand()
+
+c1.rand()
