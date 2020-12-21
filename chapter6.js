@@ -43,3 +43,61 @@ let bar2 = Object.create(Bar)
 bar2.init('cm')
 bar1.speak()
 bar2.speak()
+
+//  使用对象关联风格去实现一个注册，登录
+let loginController = {
+	error: [],
+	getUser: function() {
+		return document.getElementById('login_usename').value
+	},
+	getPassword: function() {
+		return document.getElementById('login_password').value
+	},
+	validateEntry: function(user, pw) {
+		user = user || this.getUser()
+		pw = pw || this.getPassword()
+		if(!(user && pw)) {
+			return this.failure(
+			'Please enter a username & password!')
+		}
+		else if(user.length > 5) {
+			return this.failure(
+			'Password must be 5+ characters!')
+		}
+		return true
+	},
+	showDialog: function(title, msg) {
+		console.log(title + msg)
+	},
+	failure: function(err) {
+		this.error.push(err)
+		console.log('Error', 'Login invaild: ' + err)
+	}
+}
+let AuthController = Object.create(loginController)
+
+AuthController.errors = []
+AuthController.checkAuth = function() {
+	let user = this.getUser()
+	let pw =  this.getPassword()
+	
+	if(this.validateEntry(user, pw)) {
+		this.server('/check-auth', {
+			user: user,
+			pw: pw
+		}).then(this.accepted.bind(this))
+		.fail(this.rejected.bind(this))
+	}
+}
+AuthController.server(url, data) {
+	return $.ajax({
+		url: url,
+		data: data
+	})
+}
+AuthController.accepted = function() {
+	this.showDialog('success', 'Authenticated!')
+}
+AuthController.rejected = function(err) {
+	this.failure('Auth Failed: ' + err);
+}
