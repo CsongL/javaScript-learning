@@ -40,3 +40,35 @@ console.log(testEpsion, testEpsionB)
 console.log(numberCloseEnoughToEqual(testEpsion, testEpsionB))
 console.log(0.0000001, 0.0000002)
 console.log(numberCloseEnoughToEqual(0.00000001, 0.0000002))
+
+//  javaScript 运算结果溢出是，结果可能为Infinity 或者 -Infinity
+let infinityA = Number.MAX_VALUE
+let infinityB = Number.MIN_VALUE
+
+console.log(infinityA + infinityA)
+console.log(infinityB + infinityB)
+
+//  判断是不是-0
+function isNegZero(n) {
+	n = Number(n)
+	return (n===0 && 1/n === -Infinity)
+}
+console.log(isNegZero(-0))
+console.log(isNegZero(0))
+
+// vue 
+let testCopyA = 2
+function testCopyFunction1() {
+	testCopyA = 3
+	console.log(testCopyA)
+}
+function testCopyFunction2(testCopy) {
+	testCopy = 5
+	console.log(test)
+	console.log(testCopyA)
+}
+
+testCopyFunction1()
+testCopyFunction2(testCopyA)
+
+
