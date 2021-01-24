@@ -117,11 +117,10 @@ console.log(!!'')
 console.log(!!false)
 console.log(!!NaN)
 
-//  宽松相等， 严格相等， 
+//  宽松相等， 严格相等
 //  宽松相等会进行强制类型转换， 而严格相等不会进行强制类型转换
- let looseEqualsA = 43
- let looseEqualsB = '43'
- console.log(looseEqualsA == looseEqualsB) //  == 宽松相等会进行强制类型转换，因此只需要值相等就能判断等
- console.log(looseEqualsA === looseEqualsB)  //  === 严格相等不会进行强制类型转换，因此不能仅仅是值相等既能判断其相等，还要判断其是否类型相等。
- console.log(43== true)
- console.log(43 === true)
+let looseEqualsA = 43
+let looseEqualsB = '43'
+console.log(looseEqualsA == looseEqualsB) //  == 宽松相等会进行强制类型转换，因此只需要值相等就能判断等
+console.log(looseEqualsA === looseEqualsB)  //  === 严格相等不会进行强制类型转换，因此不能仅仅是值相等既能判断其相等，还要判断其是否类型相等。
+

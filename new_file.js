@@ -9,7 +9,7 @@ async function changeColor(color, duration) {
     await sleep(duration)
 }
 async function one2FiveInAsync() {
-    await changeColor('red', 2000)
+    await changeColor('red', 1000)
     await changeColor('orange', 1000)
     await changeColor('green', 3000)
 }
