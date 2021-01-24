@@ -98,7 +98,6 @@ let createnbwtObject = Object.create(nbwtObject)
 
 createnbwtObject.doCool = function() {
 	 this.cool()
-	 console.log('zz')
 }
 
 console.log(createnbwtObject.doCool())
