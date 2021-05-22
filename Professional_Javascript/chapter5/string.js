@@ -26,3 +26,4 @@ console.log(substr.slice(-5,-1));
 console.log(substr.substr(-5));
 console.log(substr.substr(-5,-1)); //  substr will trun the second negative parameters to 0
 console.log(substr.substring(-5,-1)); //  substring will turn all negative parameters to 0
+  
