@@ -63,3 +63,6 @@ console.log(num.toFixed(2)); // 指定小数点后的位数，返回的指定的
 console.log(num.toExponential(1));  //  返回的是科学计数法表示的字符串形式，参数指定科学计数法的小数的位数  
 console.log(num.toPrecision(3));  //  指定字符串中是数字的总位数
 console.log(Number.isInteger(100)); // 判断是不是整数
+
+let message = "abcdef";
+console.log(message.charCodeAt(2));
