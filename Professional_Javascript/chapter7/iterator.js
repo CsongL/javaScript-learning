@@ -158,5 +158,4 @@ for(let i of counter2){
     console.log(i);
 }
 
-
 let [e,g] = counter2;
