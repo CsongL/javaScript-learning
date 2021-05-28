@@ -77,7 +77,7 @@ console.log(vm.get(user) instanceof Object);
 console.log(vm.get(user).idProperty);
 console.log(user.idProperty);
 
-//  符号
+//  符号 
 let id = Symbol.for('id');
 let student = {
     id: '1'
