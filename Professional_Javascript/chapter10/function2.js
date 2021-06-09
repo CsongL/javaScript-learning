@@ -28,3 +28,22 @@ function sayColor(){
 // 分别将函数对象的函数体内的this指针设置为实例对象o 或实例对o1
 sayColor.call(o);
 sayColor.call(o1);
+
+
+// 闭包
+let object = {
+    identity: "This object",
+    getIdentity(){
+        return function() {
+            return this.identity;
+        };
+    }
+};
+let obeject2 = {
+    identity: "This object2"
+}
+obeject2.getIdentity = object.getIdentity();
+console.log(object.getIdentity()());
+console.log(obeject2.getIdentity());
+
+console.log(a=2);
