@@ -46,4 +46,72 @@ obeject2.getIdentity = object.getIdentity();
 console.log(object.getIdentity()());
 console.log(obeject2.getIdentity());
 
-console.log(a=2);
+
+//  构造函数模式
+function MyObject(){
+    //  私有变量和方法
+    let privateVariable = 10;
+    function privateFunction(){
+        return false;
+    }
+
+    //  特权方法
+    this.publicMethod = function () {
+        privateVariable++;
+        return privateFunction();
+    };
+    this.getPrivateVariable = function() {
+        return privateVariable;
+    };
+}
+
+let myObject = new MyObject();
+console.log(myObject.getPrivateVariable());
+console.log(myObject.publicMethod());
+console.log(myObject.getPrivateVariable());
+
+// 静态私有变量模式(原型模式)  在构造函数的原型对象上定义特权方法来返回构造函数内部的私有变量
+function MyObject2() {
+    let privateVariable = 10;
+    function privateFunction(){
+        return false;
+    }
+
+    // 在原型属性对应的对象上定义特权方法
+    MyObject2.prototype.publicMethod = function(){
+        privateVariable ++;
+        return privateFunction();
+    };
+    MyObject2.prototype.getPrivateVariable = function(){
+        return privateVariable;
+    };
+}
+
+let myObject2 = new MyObject2();
+console.log(myObject2.getPrivateVariable());
+console.log(myObject2.publicMethod());
+console.log(myObject2.getPrivateVariable());
+
+//  模块模式(返回一个对象字面量)
+let sigleton = function(){
+    let arr = new Array([1,2,3]);
+    arr.push(4);
+
+    return {
+        getArr(){
+            return arr;
+        },
+        addElment(element){
+            if(typeof element == "number"){
+                arr.push(element);
+            }else{
+                throw "the type of the element should be a number";
+            }
+        }
+    };
+};
+
+let sigletonObject = sigleton();
+console.log(sigletonObject);
+
+
