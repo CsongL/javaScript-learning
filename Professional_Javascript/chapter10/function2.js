@@ -112,6 +112,9 @@ let sigleton = function(){
 };
 
 let sigletonObject = sigleton();
-console.log(sigletonObject);
+console.log(sigletonObject.getArr());
+sigletonObject.addElment(5);
+console.log(sigletonObject.getArr());
+sigletonObject 
 
 

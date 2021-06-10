@@ -96,4 +96,4 @@ function King(){
 }
 
 new King();
-King(); // 报错
+King(); // 报错 
