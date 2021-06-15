@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var age = 29;
+    console.log(window.age);
+    var sayAge = function (){
+        console.log("sayAge function:"+this.age);
+    }
+    sayAge();
+
+    console.log("window.name"+window.name);
+    console.log("window.top" + window.top);
+    console.log("window.parent" + window.parent);
+    console.log("window.self" + window.self);
+
+    //  the position of window and css 
+    console.log("window position: left" + window.screenLeft + ";Top" + window.screenTop);
+    window.moveTo(0,0);  //  移动到的绝对坐标x和y
+    window.moveBy(100, 100); //  两个参数分别是向右，向下移动的距离
+    console.log("window devicePixelRation" + window.devicePixelRatio);
+
+
+    //  窗口大小
+    console.log(window.outerWidth, window.outerHeight);
+    console.log(window.innerWidth, window.innerHeight); //  通过innerWidth 和 innerHeight来获取视觉窗口
+    //  确定页面视口大小
+    //  布局视口指的就是网页的布局大小，网页实际的大小
+    //   可视窗口 可视窗口指的是我们此时通过屏幕所能看到的网页的大小
+    //  例如这个网页我们规定了 其大小为 1000X500
+    //  而这个屏幕的大小只有 500X300
+    //  那么在这里布局窗口的大小为 1000X500
+    //  可视窗口的大小为 500x300
+    console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);  //  document.documentElement.clientWidth和document.documentElement.clientHeight返回的是布局视口大小，即渲染页面的实际大小，
+    
+    console.log(document.compatMode); //  输出页面此时处于什么模式下
+
+    //  导航与打开新的窗口
+    // let baiduWindow = window.open("https://www.baidu.com/", "topName",
+    //             "height=400, width=400,top=10,left=10,resizable=yes");
+    // console.log(baiduWindow.opener == window);
+
+    //  定时器 setTimeout()  与循环定时器setInterval()
+    //  setTimeout() 等待指定的时间后，将执行回调函数的任务放入任务队列中 回调函数只会运行一次  该方法会返回一个数值ID，该数值ID唯一指向某个具体的超时函数
+    //  setInterval() 每隔一定时间后，将执行该回调函数的任务放入任务队列中 回调函数会多次运行  该方法会返回一个数值ID，也唯一指向某个具体的间隔函数
+    let  timeOut = setTimeout(() =>alert("Hello world!"), 1000);
+    console.log(timeOut);
+    clearTimeout(timeOut); //  取消超时函数的执行
+
+    // let interval = setInterval(() => alert("Hello world"), 1000);
+    // clearInterval(interval);
+
+    let num = 0, intervalId=null;
+    let max = 5;
+    let incrementNumber = function(){
+        num++;
+        console.log(num);
+        if(num==max){
+            clearInterval(intervalId);
+            console.log("Cancel interval");
+        }
+    }
+    intervalId = setInterval(incrementNumber, 2000);
+
+
+    // 系统对话框
+    let alertVal = alert("alert");
+
+    if(confirm("Are you sure")){
+        console.log("ok");
+    }else{
+        console.log("fine");
+    }
+    let result = prompt("What's your name?", "");
+    if(result != null){
+        console.log(result);
+    }else{
+        console.log("do not input anything");
+    }
+    window.find();
+</script>
+</html>
