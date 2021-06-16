@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(window.location);
+    window.location.hash = "#section1";
+    window.location.search = "?q=javascript&name=c";
+    let getQueryStringArgs = function(){
+        let qs = window.location.search.length>0? window.location.search.substring(1) : "";
+        let args = {};
+        for(let elem of qs.split("&").map((key) => key.split("="))){
+            let name = decodeURIComponent(elem[0]);
+            let value = decodeURIComponent(elem[1]);
+            if(name.length != 0){
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    let args = getQueryStringArgs();
+    console.log(args);
+    let searchParameters = new URLSearchParams(window.location.search);
+    console.log(searchParameters.toString());
+    console.log(searchParameters.get("q"));
+    console.log(searchParameters.has("q"));
+
+    searchParameters.set("page", "3");
+    console.log(searchParameters.get("page"));
+
+    let pluginsArr = window.navigator.plugins
+    console.log(pluginsArr);
+
+    console.log(window.screen.availHeight, window.screen.availWidth);
+    console.log(window.screen.height, window.screen.width);
+
+    console.log(window.history.state);
+    let state = {foo: "bar"};
+    window.history.pushState(state, "My title");
+    console.log(window.history.state);
+    console.log(window.history.length);
+    window.history.go(-1);
+
+</script>
+</html>
