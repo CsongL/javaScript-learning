@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button_1"></button>
+</body>
+<script>
+    console.log(window.navigator.userAgent);
+    window.navigator.__defineGetter__('userAgent', ()=>'foobar');
+    console.log(window.navigator.userAgent);
+
+    console.log(window.navigator.oscpu);
+    console.log(window.navigator.vendor);
+    console.log(window.navigator.platform);
+    console.log(window.screen.colorDepth);
+    console.log(window.screen.orientation);
+    let p;
+    window.navigator.geolocation.getCurrentPosition((position) => {p=position},
+                                                    (e) => {console.log(e.code)});
+    
+    console.log(window.navigator.onLine);
+    console.log(window.navigator.connection);
+    window.navigator.getBattery().then((b) => console.log(b));
+
+</script>
+</html>
