@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="1" name="div1">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </div>
+        <div id="1" name="div2">
+            <input>
+        </div>
+        <script>
+            document.write("<strong>"+(new Date()).toString() + "</strong>");
+            document.write("<script src=\"file.js\">"+"<\/script>");
+                //  页面加载完成后，会出发onload事件，根据时间处理函数，从而重新加载页面
+            // window.onload = function(){
+            //     document.write("Hello world!");
+            // }
+        </script>
+        <div id="2" name="div3">
+            <textarea></textarea>
+        </div>
+    </body>
+    <script>
+        console.log(document.nodeName);
+        console.log(document.nodeType);
+        
+        //孩子节点
+        console.log(document.childNodes);
+        console.log(document.hasChildNodes());
+        console.log(document.firstChild);
+        console.log(document.lastChild);
+        console.log(document.childNodes.length);
+        let html = document.childNodes[1];
+        console.log(html);
+        console.log(html.parentNode);
+        console.log(html.childNodes);
+        let textNode = html.childNodes[1];
+        console.log("textNode");
+        console.log(textNode);
+        console.log(textNode.nextSibling);
+        console.log(textNode.previousSibling);
+        console.log(textNode.hasChildNodes());
+        let bodyNode = html.childNodes.item(2);
+        console.log(bodyNode);
+        console.log(bodyNode.nextSibling);
+        console.log(bodyNode.previousSibling);
+        console.log(bodyNode.ownerDocument);
+
+        //操总节点
+        console.log(bodyNode.hasChildNodes());
+        console.log(bodyNode.childNodes);
+        let div2 = bodyNode.childNodes[3];
+        console.log(div2);
+        bodyNode.appendChild(div2);
+        console.log(bodyNode.childNodes);
+        console.log(bodyNode.lastChild == div2);
+        let returnedNode = bodyNode.insertBefore(bodyNode.lastChild,bodyNode.firstChild);
+        console.log(returnedNode == bodyNode.firstChild);
+        console.log(returnedNode);
+        console.log(bodyNode.childNodes);
+        let ulNode = bodyNode.childNodes[2];
+        console.log(ulNode);
+        let ulNode2 = ulNode.cloneNode(true);
+        console.log(ulNode2);
+        bodyNode.appendChild(ulNode2);
+        let ulNode3 = ulNode.cloneNode();
+        console.log(ulNode3);
+        bodyNode.appendChild(ulNode3);
+        console.log(bodyNode.lastChild);
+        console.log(bodyNode.childNodes);
+        bodyNode.normalize();
+
+        //
+        console.log(document.nodeType);
+        console.log(document.documentElement);
+        console.log(document.body);
+        console.log(document.doctype);
+
+        console.log(document.title);
+        console.log(document.URL);
+        console.log(document.referrer);
+        console.log(document.domain);
+        let div1 = document.getElementById(1);
+        console.log(div1);
+        let div = document.getElementsByTagName("div");
+        console.log(div);
+        console.log(div.length);
+        console.log(div[1]);
+        console.log(document.getElementsByTagName("*"));
+        console.log(document.getElementsByName("div2")[0]);
+    </script>
+</html>
