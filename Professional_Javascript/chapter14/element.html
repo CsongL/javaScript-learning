@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    .myDiv{
+       background-color: aqua; 
+    }
+    .myDiv_2{
+        background-color: salmon;
+    }
+    .myDiv2{
+        background-color: seagreen;
+    }
+    .myDiv4{
+        background-color: skyblue;
+        min-height: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div id="myDiv" title="myDiv" lang="en" class="myDiv" dir="ltr" style="width: 50%;">My Div</div>
+    <div id="myDiv4"><!--Comment content-->zz</div>
+</body>
+<script>
+    let myDiv = document.getElementById("myDiv");
+    console.log(myDiv.nodeName);
+    console.log(myDiv.nodeType);
+    console.log(myDiv.parentNode);
+    console.log(myDiv.tagName);
+    console.log(myDiv.className);
+
+    console.log(myDiv.getAttribute("id"));
+    console.log(myDiv.getAttribute("class"));
+    console.log(myDiv.getAttribute("title"));
+    console.log(myDiv.getAttribute("lang"));
+
+    console.log(myDiv.style);
+    console.log(myDiv.getAttribute("style"));
+
+    myDiv.removeAttribute("class");
+
+    myDiv.setAttribute("class", "myDiv_2");
+
+    console.log(myDiv.attributes);
+    console.log(myDiv.attributes.getNamedItem("id").nodeValue);
+    console.log(myDiv.attributes["id"].nodeValue);
+    console.log(myDiv.attributes.item(1));
+
+    function ouputAttributes(element){
+        let attributes = [];
+        for(let i=0, len=element.attributes.length; i<len; i++){
+            let attr = element.attributes.item(i);
+            attributes.push(`${attr.nodeName}="${attr.nodeValue}"`);
+        }
+        console.log(attributes.join(" "));
+    }
+    ouputAttributes(myDiv);
+
+    let myDiv2 = document.createElement("div");
+    let ul = document.createElement("ul");
+
+    let li = document.createElement("li");
+    let text = document.createTextNode("Item 1");
+    li.appendChild(text);
+    ul.appendChild(li);
+    
+    let li2 = document.createElement("li");
+    let text2 = document.createTextNode("Item 2");
+    li2.appendChild(text2);
+    ul.appendChild(li2);
+    myDiv2.appendChild(ul);
+    myDiv2.id="myDiv2";
+    myDiv2.className= "myDiv2";
+    myDiv2.setAttribute("title", "myDiv2");
+    document.body.appendChild(myDiv2);
+
+    let div3 = document.createElement("div");
+    div3.className = "div3";
+
+    let text3_1 = document.createTextNode("Hello world");
+    div3.appendChild(text3_1);
+    
+    let text3_2 = document.createTextNode("Yahhh");
+    div3.appendChild(text3_2);
+
+    document.body.appendChild(div3);
+
+    console.log(div3.childNodes.length);
+    div3.normalize();
+    console.log(div3.childNodes.length);
+
+
+    let newNode = div3.firstChild.splitText(5);
+    console.log(newNode.nodeValue);
+
+    let myDiv4 = document.getElementById("myDiv4");
+    console.log(myDiv4.firstChild.nodeType);
+    console.log(myDiv4.firstChild.nodeValue);
+    console.log(myDiv4.firstChild.data);
+    
+    console.log(document.firstChild);
+    console.log(document.firstChild.nodeName);
+
+    let attr = document.createAttribute("class")
+    attr.value = "myDiv4";
+    myDiv4.setAttributeNode(attr);
+    console.log(myDiv4.attributes["class"]);
+    console.log(myDiv4.getAttribute("class"));
+    console.log(myDiv4.getAttributeNode("class").value);
+    
+
+</script>
+
+</html>
