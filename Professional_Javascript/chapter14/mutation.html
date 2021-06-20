@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myDiv1{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id ="myDiv1" class="myDiv1">test</div>
+</body>
+<script>
+    let observe = new MutationObserver((mutationRecords) => console.log(mutationRecords));
+    
+    observe.observe(document.body, {attributes: true, attributeOldValue:true})
+
+    document.body.setAttribute("foo", "test1");
+    document.body.setAttribute("foo", "test2");
+    document.body.removeAttribute("foo", "test3");
+
+    let observer1 = new MutationObserver((mutationRecords) => console.log(mutationRecords));
+    observer1.observe(document.body.childNodes[1], {attributeFilter: ["foo"], attributeOldValue:true})
+
+    document.body.childNodes[1].setAttribute("foo", "set");
+    document.body.childNodes[1].setAttribute("bar", "bar");
+
+    document.body.appendChild(document.createElement("div"));
+    let div2 = document.body.childNodes[8];
+    div2.textContent = "div2";
+    let observer2 = new MutationObserver((mutationRecords) => console.log(mutationRecords));
+    
+    observer2.observe(document.body.childNodes[8], {characterData:true, characterDataOldValue:true});
+    div2.textContent = "div2_1";
+    div2.textContent = "div2_2";
+
+    document.body.innerHTML = '';
+    let observer3 = new MutationObserver((mutationRecords) => {console.log(mutationRecords); console.log("text")});
+    
+    observer3.observe(document.body, {childList:true, attributes:true, subtree:true});
+
+    document.body.appendChild(document.createElement("span"));
+    document.body.appendChild(document.createElement("div"));
+
+    document.body.insertBefore(document.body.childNodes[1], document.body.childNodes[0]);
+    document.body.childNodes[0].setAttribute("foo", "zzz");
+
+    
+</script>
+</html>
