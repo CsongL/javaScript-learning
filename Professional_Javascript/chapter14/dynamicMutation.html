@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv1" class="dynamic_mutation_div1">myDiv1</div>
+    <div id="myDiv2" class="dynamic_mutation_div2">myDiv2</div>
+    <table border="1" id="table1">
+        <tr>
+            <td>Cell 1,1</td>
+            <td>Cell 1,2</td>
+        </tr>
+        <tr>
+            <td>Cell 2,1</td>
+            <td>Cell 2,2</td>
+        </tr>
+    </table>
+    <div id="mutation1" class="foo" style="background-color: rosybrown;">mutation1</div>
+</body>
+<script>
+    function loadScriptString(code){
+        let script = document.createElement("script");
+        script.type = "text/javascript";
+        try{
+            script.appendChild(document.createTextNode(code));
+        }catch(ex){
+            script.text = code;
+        }
+        document.body.appendChild(script);
+    }
+    function loadScriptFile(url){
+        let script = document.createElement("script");
+        script.src = url;
+        document.head.appendChild(script);
+    }
+    loadScriptFile("file.js"); //  异步执行， 将执行改文件的任务放入任务队列中，在当前同步代码执行完毕后，在执行任务队列中的任务
+    loadScriptString("function sayHi(){console.log('helloworld!');}");
+    sayHi();
+
+    function loadCssFile(url){
+        let link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = url;
+        document.head.appendChild(link);
+    }
+    loadCssFile("allstyle.css");
+    
+    function loadCssString(code){
+        let style = document.createElement("style");
+        style.type = "text/css";
+        try{
+            style.appendChild(document.createTextNode(code));
+        }catch(ex){
+            style.styleSheet.cssText = code;
+        }
+        document.head.appendChild(style);
+    }
+    loadCssString(".dynamic_mutation_div2{ background-color: royalblue;}");
+
+    function createTable(row, column){
+        let table = document.createElement("table");
+        table.border = 1;
+        let tbody = document.createElement("tbody");
+        table.appendChild(tbody);
+        for(let i=0; i<row; i++){
+            tbody.insertRow(i);
+            let row = tbody.rows[i];
+            for(let j=0; j<column; j++){
+                row.insertCell(j);
+                row.cells[j].appendChild(document.createTextNode("Cell "+(i+1)+(j+1)));
+            }
+        }
+        document.body.appendChild(table);
+    }
+    createTable(2,3);
+
+    let divs = document.getElementsByTagName("div");
+    console.log(divs.length)
+    let myDiv3  = document.createElement("div");
+    myDiv3.id = "myDiv3";
+    myDiv3.textContent = "myDiv3";
+    document.body.appendChild(myDiv3);
+    console.log(divs.length);
+
+    let observer = new MutationObserver((mutationRecords, mutationObserver)=>{console.log(mutationRecords, mutationObserver)});
+    observer.observe(document.body.childNodes[7], {attributes:true});
+    let mutationDiv = document.body.childNodes[7];
+    mutationDiv.className = "zzz";
+    observer.observe(document.body, {attributes:true});
+    document.body.setAttributeNS('baz', 'foo', 'bar');
+</script>
+</html>
