@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .selectors_myDiv1{
+            background-color: aquamarine;
+        }
+        .firstDiv{
+            font-size: medium;
+        }
+        .button1{
+            width: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv1" class="selectors_myDiv1 firstDiv">
+        <em>Have a good day</em>
+        <em>Today I will continue my first exam</em>
+        <em>Hope that I can get a good result</em>
+        <strong>How this is different</strong>
+        <input id="firstInput" data-inputId="1" data-inputName="hh">
+        <button id="firstButton" class="button1"></button>
+    </div>
+
+</body>
+<script>
+    let body = document.querySelector("body");
+    console.log(body);
+    let myDiv1 = document.querySelector("#myDiv1");
+    console.log(myDiv1);
+    let myDiv1_1 = document.querySelector(".selectors_mydiv1");
+    console.log(myDiv1_1);
+
+    let emList = document.getElementById("myDiv1").querySelectorAll("em");
+    for(let em of emList){
+        console.log(em);
+    }
+    console.log(document.getElementById("myDiv1").matches("selectors_myDiv1"));
+
+    console.log(myDiv1.childElementCount);
+    console.log(myDiv1.firstElementChild);
+    console.log(myDiv1.lastElementChild);
+
+    console.log(document.getElementsByClassName("firstDiv"));
+    console.log(myDiv1.classList);
+    let classList = myDiv1.classList;
+    console.log(classList.contains("firstDiv"));
+    console.log(classList.remove("firstDiv"));
+    console.log(classList);
+
+    let firstButton = document.getElementById("firstButton");
+    firstButton.focus();
+
+    let firstInput = document.getElementById("firstInput");
+    firstInput.focus();
+    console.log(document.hasFocus());
+    console.log(document.activeElement);
+
+    console.log(document.compatMode);
+    console.log(document.characterSet);
+
+    console.log(firstInput.dataset);
+    firstInput.dataset.inputid = 12;
+    firstInput.dataset.inputname = "zz";
+    console.log(firstInput.dataset);
+    
+    console.log(myDiv1.outerHTML);
+    console.log(myDiv1.innerHTML);
+
+    myDiv1.insertAdjacentHTML("beforebegin", "<p>Hello World!</p>");
+    myDiv1.insertAdjacentHTML("afterend", "<p>Hi</p>");
+
+    myDiv1.insertAdjacentHTML("afterbegin", "<p>first child</p>");
+    myDiv1.insertAdjacentHTML("beforeend", "<p>last child</p>");
+</script>
+</html>
