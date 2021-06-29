@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv1">
+        <p><b>Hello</b>World!</p>
+        <ul>
+            <li>List item1</li>
+            <li>List item2</li>
+            <li>List item3</li>
+        </ul>
+    </div>
+    
+</body>
+<script>
+    let filter = {
+        acceptNode(node){
+            return node.tagName.toLowerCase() == 'p' ? NodeFilter.FILTER_ACCEPT: NodeFilter.FILTER_SKIP;
+        }
+    }
+    let iterator = document.createNodeIterator(document, NodeFilter.SHOW_ELEMENT, filter, false);
+    
+
+    let myDiv1 = document.getElementById("myDiv1");
+    let iterator_1 = document.createNodeIterator(myDiv1, NodeFilter.SHOW_ELEMENT, null, false);
+    let node_1 = iterator_1.nextNode();
+    while(node_1 != null){
+        console.log(node_1.tagName);
+        node_1 = iterator_1.nextNode();
+    }
+
+    let walker_1 = document.createTreeWalker(myDiv1, NodeFilter.SHOW_ELEMENT, null, false);
+    console.log(walker_1.firstChild());
+    console.log(walker_1.nextSibling());
+    let node = walker_1.nextNode();
+    console.log(node == walker_1.currentNode);
+    while(node != null){
+        console.log(node.tagName);
+        node = walker_1.nextNode();
+    }
+    walker_1.currentNode = myDiv1;
+    console.log(walker_1.firstChild());
+</script>
+</html>
