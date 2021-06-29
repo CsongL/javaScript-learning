@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv1">
+        <p id="p1"><b>Hello</b> world!</p>
+        <p id="p2"><b>This</b>is test2!</p>
+    </div>
+</body>
+<script>
+    let range1 = document.createRange();
+    let range2 = document.createRange();
+    let p1 = document.getElementById("p1");
+    range1.selectNode(p1);
+    console.log(range1);
+    range2.selectNodeContents(p1);
+    console.log(range2);
+
+    let helloNode = p1.firstChild.firstChild;
+    let worldNode = p1.lastChild;
+    let range3 = document.createRange();
+    range3.setStart(helloNode, 2)
+    range3.setEnd(worldNode, 3);
+
+    let span = document.createElement("span");
+    span.style.color = "red";
+    span.appendChild(document.createTextNode("Inserted text"));
+    range3.insertNode(span);
+
+    let range4 = document.createRange();
+    let range5 = document.createRange();
+    
+    range4.selectNodeContents(p1);
+    range5.selectNodeContents(p1);
+
+    range4.setEndBefore(p1.lastChild);
+    console.log(range4.compareBoundaryPoints(Range.START_TO_START, range5));
+    console.log(range4.compareBoundaryPoints(Range.END_TO_END, range5));
+
+    range5.setStartBefore(p1.lastChild);
+    console.log(range4.compareBoundaryPoints(Range.END_TO_START, range5));
+    console.log(range5);
+    console.log(range4);
+</script>
+</html>
