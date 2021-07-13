@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">Right click or Ctr+click me to get a custom context menu</div>
+    <ul id="myMenu" style="position: absolute;visibility: hidden;background-color: silver;">
+        <li><a href="https://www.baidu.com/">Baidu</a></li>
+        <li><a href="https://www.google.com">Google</a></li>
+    </ul>
+</body>
+<script>
+    window.addEventListener("load", (event) =>{
+        let div = document.getElementById("myDiv");
+
+        div.addEventListener("contextmenu", (event)=> {
+            event.preventDefault();
+
+            let menu = document.getElementById("myMenu");     
+            menu.style.left = event.clientX + "px";
+            menu.style.top = event.clientY + "px";
+            menu.style.visibility = "visible";
+        });
+
+        document.addEventListener("click", (event) => {
+            document.getElementById("myMenu").style.visibility = "hidden";
+        })
+    })
+</script>
+</html>

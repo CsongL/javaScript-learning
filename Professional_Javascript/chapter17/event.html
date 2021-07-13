@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myButn{
+            width: 40px;
+            height: 20px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <button id="myBtn" class="myButn"></button>
+    <button id="myBtn1" class="myButn"></button>
+    <div>
+        <a id="myLink" href="www.baidu.com">Baidu</a>
+
+    </div>
+</body>
+<script>
+    let myBtn = document.getElementById("myBtn");
+    myBtn.addEventListener("click", (event)=>{
+        console.log(event.type);
+        console.log(event.target);
+        console.log(event.currentTarget);
+        console.log(event.cancelable);
+        console.log(event.eventPhase);
+    })
+    let handler = function(event){
+        switch(event.type){
+            case "click":
+                console.log("click_handler");
+                break;
+            case "mouseover":
+                event.target.style.backgroundColor = "red";
+                break;
+            case "mouseout":
+                event.target.style.backgroundColor = "";
+                break;
+        }
+    }
+    myBtn.onclick = handler;
+    myBtn.addEventListener("mouseover", handler);
+    myBtn.addEventListener("mouseout", handler);
+
+    document.body.addEventListener('click', (event) =>{
+        console.log("body");
+        console.log(event.eventPhase);
+    })
+
+    let link = document.getElementById("myLink");
+    link.onclick = function(event){
+        event = EventUtils.getEvent(event);
+        console.log(event.type);
+        console.log(event.srcElement);
+        console.log(event.returnValue);
+        EventUtils.preventDefault(event);
+        console.log(event.returnValue);
+        console.log(event.cancelBubble);
+        EventUtils.stopPropagation(event);
+        console.log(event.cancelBubble);
+    }
+
+
+    var EventUtils = {
+        addHandlers(element, type, handler){
+            if(element.addEventListener){
+                element.addEventListener(type, handler, false);
+            }else if(element.attachEvent){
+                element.attachEvent("on"+type, handler);
+            }else{
+                element["on"+type] = handler;
+            }
+        },
+        removeHandlers(element, type, handler){
+            if(element.removeEventListener){
+                element.removeEventListener(type, handler, false);
+            }else if(element.detachEvent){
+                element.detachEvent("on"+type, handler);
+            }else{
+                element["on"+type] = handler;
+            }
+        },
+        getEvent(event){
+            return event ? event: window.event;
+        },
+        getTarget(event){
+            return event.target || event.srcElement;
+        },
+        preventDefault(event){
+            if(event.preventDefault){
+                event.preventDefault();
+            }else{
+                event.returnValue = false;
+            }
+        },
+        stopPropagation(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        }
+    }
+</script>
+</html>
