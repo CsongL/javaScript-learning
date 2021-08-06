@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media screen{
+            .box{
+                background-color: red;
+            }
+        }
+        @media not screen{
+            .box1{
+                background-color: blue;
+            }
+        }
+        /* and 要求两个条件同时成立，  ‘,’逗号相当于or操作符，有一个条件成立就可以应用相应的样式*/
+        @media screen and (min-width: 240px) and (max-width:500px){
+            .box2{
+                background-color: aqua;
+            }
+        }
+        @media screen and (min-width: 500px){
+            .box3{
+                background-color: tan;
+            }
+        }
+        @media  screen and (max-width: 240px), (min-width:500px) and (max-width:600px) {
+            .box4{
+                background-color: turquoise;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        This is the box
+    </div>
+    <div class="box1">
+        This is the box1
+    </div>
+    <p>and 操作符</p>
+    <div class="box2">
+        This is the box2
+    </div>
+    <div class="box3">
+        This is the box3
+    </div>
+    <p>,号操作符 相当于or</p>
+    <div class="box4">
+        This is the box4
+    </div>
+</body>
+</html>
