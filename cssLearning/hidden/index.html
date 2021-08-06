@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .div_visibility{
+            visibility: hidden;
+        }
+        .div_opacity{
+            opacity: 0;
+        }
+        .div_display{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box" class="div_display"></div>
+    <div></div>
+</body>
+<script>
+    let div = document.getElementById("box");
+    div.addEventListener("click", ()=>{
+        console.log("I still can click");
+    })
+</script>
+</html>

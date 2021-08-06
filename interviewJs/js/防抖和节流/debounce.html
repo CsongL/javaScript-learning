@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1">Click the button to show the alert</button>
+    <button onclick="myFunction()">Click</button>
+
+    <p>单击按钮触发函数。</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo"></p>
+</body>
+<script>
+    function myFunction(){
+        console.log("test");
+	document.getElementById("demo").innerHTML="Hello World";
+    }
+    function debounce(fn, delay){
+        let timer;
+        return function(){
+            let _this = this;
+            let args = arguments;
+            if(timer){
+                console.log(timer);
+                clearTimeout(timer)
+            }
+            timer = setTimeout(function(){
+                fn.apply(_this, args);
+            }, delay)
+        }
+    }
+
+    function showAlert(e){
+        console.log(e);
+    }
+
+    let testDebounce = debounce(showAlert, 5000);
+    
+    document.getElementById("button1").addEventListener("click", function(e){
+        testDebounce(e);
+    })
+</script>
+</html>

@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+         body{
+             min-width: 550px;
+             font-weight: bold;
+             font-size: 20px;
+         }
+         #header, #footer{
+             background-color: turquoise;
+             height: 100px;
+         }
+         #container{
+             overflow: hidden;
+         }
+         .column{
+             height: 300px;
+         }
+         #left, #right, #center{
+             float: left;
+         }
+         #center{
+             width: 100%;
+             background-color: thistle;
+         }
+         #left{
+             width: 200px;
+             margin-left: -100%;
+             background-color: violet;
+         }
+         #right{
+             width: 200px;
+             margin-left: -200px;
+             background-color: yellow;
+         }
+         .content{
+             margin: 0 200px 0 200px;
+         }
+     </style>
+ </head>
+ <body>
+    <div id="header">#header</div>
+ 
+    <div id="container">
+      <div id="center" class="column">
+        <div class="content">#center</div>
+      </div>
+      <div id="left" class="column">#left</div>
+      <div id="right" class="column">#right</div>
+    </div>
+   
+    <div id="footer">#footer</div>
+ </body>
+ </html>

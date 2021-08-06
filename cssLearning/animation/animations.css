@@ -1,0 +1,54 @@
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, -160px);
+            transform: translate(0, -160px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, -160px);
+            transform: translate(0, -160px);
+  }
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 220px;
+  height: 40px;
+  background: #0066ff;
+  border-radius: 2em;
+  overflow: hideden;
+}
+
+.container .ul {
+  -webkit-animation-name: scroll;
+          animation-name: scroll;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.container .li {
+  width: 100%;
+  line-height: 40px;
+  verticle-align: bottom;
+  color: #fff;
+  text-align: center;
+}
+/*# sourceMappingURL=animations.css.map */

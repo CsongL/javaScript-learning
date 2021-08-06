@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        @import url("animations.min.css");
+    </style>
+</head>
+<body>
+    <button onclick="show()">唤起弹窗</button>
+    <div class="popup">
+        我是弹窗
+        <div class="popup__close" onclick="hide()">x</div>
+    </div>
+</body>
+<script>
+    function show() {
+        const popup = document.getElementsByClassName("popup")[0];
+        popup.className += ' popup--isActive';
+    }
+    function hide() {
+        const popup = document.getElementsByClassName("popup")[0];
+        popup.className = 'popup';
+    }
+</script>
+</html>

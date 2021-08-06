@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .absolute{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .ordinal{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="absolute"></div>
+    <div class="ordinal"></div>
+    <span>因为使用absolute定位的元素不会占据文档位置，所以之后的元素会占据本应div所占用的位置</span>
+</body>
+</html>

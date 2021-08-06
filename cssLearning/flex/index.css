@@ -1,0 +1,56 @@
+.box{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: space-between;  /*主轴 水平对齐的方式*/
+    align-items: center;  /*交叉轴 垂直方向对齐的方式*/
+    align-content: space-around;
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+}
+.item_blue{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: aqua;
+}
+.item_puple{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: plum;
+}
+.item_green{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: grey;
+}
+.item_4{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: powderblue;
+}
+.item_5{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: palegreen;
+    align-self: flex-start;
+}
+.item_6{
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: paleturquoise;
+}
+
+.item_7{
+    width: 10px;
+    height: 40px;
+    margin: 0 10px;
+    background-color: burlywood;
+}
+

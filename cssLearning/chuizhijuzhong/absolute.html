@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        .parent{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .son{
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            left: 50%;
+            top: 50%;
+            margin-left: -60px;
+            margin-top: -60px;
+            background-color: aqua;
+        }
+        .son_transform{
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: blue;
+        }
+        .son_inline{
+            position: absolute;
+            /* display: inline; */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0px;
+            background-color: cadetblue;
+            margin: auto;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <strong>定宽高</strong>
+    <div class="parent">
+        <div class="son"></div>
+    </div>
+    <div class="parent" style="margin-top: 50px;">
+        <div class="son_transform"></div>
+    </div>
+    <div class="parent" style="margin-top: 50px;">
+        <div class="son_inline"></div>
+    </div>
+</body>
+</html>

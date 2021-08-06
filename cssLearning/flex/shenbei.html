@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100%;
+        }
+        #parent{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .child1{
+            background-color: aqua;
+            height: 100px;
+        }
+        .child2{
+            background-color:black;
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+        }
+        .child3{
+            background-color: cadetblue;
+            height: 100px;
+        }
+        .child4, .child6{
+            background-color: darkcyan;
+            width: 100px;
+            height: 850px
+        }
+        .child5{
+            background-color: plum;
+            flex:1;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div class="child1"></div>
+        <div class="child2">
+            <div class="child4"></div>
+            <div class="child5"></div>
+            <div class="child6"></div>
+        </div>
+        <div class="child3"></div>
+    </div>
+</body>
+</html>

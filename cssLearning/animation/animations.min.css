@@ -1,0 +1,51 @@
+@keyframes scroll { 0% { transform: translate(0, 0); }
+  100% { transform: translate(0, -160px); } }
+
+.container { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 220px; height: 40px; background: #0066ff; border-radius: 2em; overflow: hideden; }
+
+.container .ul { animation-name: scroll; animation-duration: 5s; animation-timing-function: linear; animation-iteration-count: infinite; }
+
+.container .li { width: 100%; line-height: 40px; verticle-align: bottom; color: #fff; text-align: center; }
+
+button { padding: 6px 20px; font-size: 14px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #0066ff; color: white; border: 0; border-radius: 2em; outline: none; }
+
+button:hover { opacity: 0.8; cursor: pointer; }
+
+.popup { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); position: fixed; top: -50%; width: 300px; line-height: 200px; text-align: center; background: #0066ff; color: #fff; border-radius: 0.25em; box-shadow: 0 0 10px #ccc; }
+
+.popup--isActive { animation-name: animate; animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.21, 0.85, 1, 1); animation-iteration-count: 1; animation-fill-mode: forwards; }
+
+.popup__close { width: 40px; line-height: 40px; height: 40px; border-radius: 50%; background: #fff; color: #000; font-size: 20px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); top: 100%; box-shadow: 0 0 10px #888484; cursor: pointer; }
+
+.popup__close:hover { filter: brightness(0.9); }
+
+@keyframes animate { 0% { top: -100%;
+    opacity: 0; }
+  25% { top: 60%;
+    opacity: 1; }
+  50% { top: 48%;
+    opacity: 1; }
+  75% { top: 52%;
+    opacity: 1; }
+  100% { top: 50%;
+    opacity: 1; } }
+
+@keyframes animation-y { 0% { transform: translate(-50%, 100px) scale(0); }
+  50% { transform: translate(-50%, -100px) scale(1.5); }
+  100% { transform: translate(-50%, -300px) scale(1.5); } }
+
+@keyframes animation-x { 0% { margin-left: 0px; }
+  25% { margin-left: 25px; }
+  75% { margin-left: -25px; }
+  100% { margin-left: 0px; } }
+
+.like { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 25px; height: 25px; pointer-events: none; background-size: cover; background-position: center; background-repeat: no-repeat; background-image: url(https://img14.360buyimg.com/ling/jfs/t1/134959/40/26/8929/5ec79d68E968b0377/aa4feff2b7bcf231.png); animation: animation-x 3s 0s linear infinite, animation-y 4s 0s linear 1; }
+
+.like--is-second { background-image: url(https://img14.360buyimg.com/ling/jfs/t1/134906/37/26/9080/5ec79d5dE90e5f972/bc39e647c61c8bab.png); animation: animation-x 3s -2s linear infinite, animation-y 4s 0s linear 1; }
+
+.btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); top: 80%; user-select: none; width: 50px; line-height: 50px; background: #0066ff; color: #fff; text-align: center; border-radius: 50%; box-shadow: 0 0 10px #999; cursor: pointer; }
+
+.btn:hover { opacity: 0.8; }
+
+.btn:active { opacity: 1; }
+/*# sourceMappingURL=animations.min.css.map */

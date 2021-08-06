@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Document</title>
+</head>
+<body>
+    <p>transform</p>
+    <div class="transform"></div>
+    <p>linear-gradient</p>
+    <div class="gradient"></div>
+    <p>boxshadow</p>
+    <div class="boxshadow"></div>
+</body>
+<style>
+    div{
+        width: 300px;
+        background-color: #000;
+    }
+    .transform{
+        height: 1px;
+        transform: scaleY(0.5);
+        transform-origin: 50% 100%;
+    }
+    .gradient{
+        height: 1px;
+        background: linear-gradient(0deg, #fff, #000);
+    }
+    .boxshadow{
+        height: 1px;
+        background: none;
+        box-shadow: 0 0.5px 0 #000;
+    }
+</style>
+</html>

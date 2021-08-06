@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .line_top{
+            height: 1px;
+            width: 100%;
+            border-top: 1px solid turquoise;
+            margin: 10px 0;
+        }
+        .shu_line{
+            height: 10px;
+            width: 1px;
+            border-left: 1px solid black;
+        }
+        .singal_ellipsis{
+            width: 100px;
+            white-space: nowrap; /* 禁止换行， 用来让文本超出范围，从而让超出的部分显示为 ...*/ 
+            text-overflow: ellipsis; /*text-overflow 用来确定超出部分文本如何显示 只对块级元素的溢出内容有效*/
+            overflow: hidden; /*overflow 用来定义当一个块级元素内部的内容超过块级元素的大小时，元素的内容应该如何显示
+                                hidden： 将超出的部分隐藏
+                                visible: 超出的部分仍然可以显示
+                                scroll: 给块级元素添加滑轮
+                                auto: 由浏览器定夺，有浏览器来决定溢出部分如何显示
+                                块级元素必须要设置高度或者white-space:nowrap  否则内容会自动拉大填充块级元素，那么永远不会发生文本溢出*/
+        }
+        .multipl_ellipsis{
+            width: 100px;
+            height: 60px;
+             
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            -webkit-line-clamp: 3; /*超过两行显示胜利号*/
+        }
+    </style>
+</head>
+<body>
+    <p>单行溢出</p>
+    <div class="singal_ellipsis">啊啊啊啊啊啊啊啊</div>
+    <div class="line_top"></div>
+    <div class="shu_line"></div>
+    <p>多行溢出</p>
+    <div class="multipl_ellipsis">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+</body>
+</html>
