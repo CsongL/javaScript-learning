@@ -1,11 +1,20 @@
-var name = "windowsName";
-function a() {
-    var name = "Hot";
+var a = 1;
 
-    console.log(this.name);
-
-    console.log("inner" + this);
+function b(){
+    console.log(a);
+    a = 10;
+    console.log(a);
+    return;
+    function a(){}
 }
+console.log(a);
+b();
+console.log(a);
+console.log(typeof a);
 
-a();
-console.log("outer:" + this);
+console.log(c);
+function c(){
+    console.log("test");
+}
+var c= 1;
+console.log(c);
