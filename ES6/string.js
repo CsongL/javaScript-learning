@@ -25,5 +25,45 @@ function raw(strings, ...values){
     
     return output;
 }
-console.log(raw({raw: ["Hello", "test"]}, 4+2, 2+4))
-console.log(String.raw({raw: ["Hello", "test"]}, 1+2, 2+4))
+console.log(raw({raw: ["Hello", "test"]}, 4+2, 2+4));
+
+console.log(String.raw`test${2+4}`);
+console.log(raw`test${2+4}`);
+
+console.log(String.raw({raw: ["Hello", "test"]}, 1+2, 2+4));
+console.log(String.raw({raw: ["Hello", "test"]}, 1+2, 2+4));
+
+function safeHtml(templateData){
+    let s = templateData[0];
+    for(let i =1; i<arguments.length; i++){
+        let arg = arguments[i];
+        s += arg.replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&rt;");
+        s += templateData[i];
+    }
+    return s;
+}
+let sender = "<script>alert(abc)</script>";
+let message = safeHtml`<p>${sender} has sent you a message</p>`;
+console.log(message);
+
+// 一字节八个二进制位， 一通常一个字符是由两个字节存储的，每次读取字符的时候也只是读取两个字节，
+// 所以如果字符对应的码值 大于 0xFFFF,那么就会被分为两次读取，而codePointAt()可以一次读取大于0xFFFF的字符，并将其转为对应的Unicode码值
+
+
+// let charO = String.fromCodePoint(\u01D1);
+// console.log(charO);
+
+console.log('\u01D1'.normalize() === '\u004F\u030c'.normalize());
+
+let inMessage = "Hello world!";
+console.log(inMessage.endsWith("!"));
+console.log(inMessage.startsWith("Hello"));
+console.log(inMessage.includes("w"));
+
+// 补全
+let test = 'abs'.padStart(10, "0123456789");
+console.log(test);
+test = 'abs'.padEnd(2, "dd");
+console.log(test);
