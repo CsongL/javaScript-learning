@@ -61,7 +61,7 @@ function move({move1=0, move2=0} = {}){
 }
 move({move1: 2, move2: 3});
 move({move1: 1}); 
-move({})
+move({});
 // 下面是给对象参数赋值默认值
 function movef({move1, move2} = {move1:1, move2:1}){
     console.log([move1, move2]);
