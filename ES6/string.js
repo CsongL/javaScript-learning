@@ -67,3 +67,13 @@ let test = 'abs'.padStart(10, "0123456789");
 console.log(test);
 test = 'abs'.padEnd(2, "dd");
 console.log(test);
+
+// replaceAll
+// $& 表示匹配的字符
+console.log('abbc'.replaceAll('b', '$&')); // => 'abbc'  
+// $` 表示匹配的字符之前的字符串
+console.log('abbc'.replaceAll('b', '$`')); // => 'aaabc'
+// $' 表示匹配的字符之后的字符串
+console.log('abbc'.replaceAll('b', '$\'')); // => 'abccc'
+// $n 表示匹配的第几分组， 从1开始计数
+console.log('abbc'.replaceAll(/(ab)(bc)/g, '$2$1')) // => 'bcab'
