@@ -1,0 +1,57 @@
+// 以下三种不同类型的方法， 不论是否元素宽高已定，都可以将元素设置为水平垂直居中
+
+// 通过 grid方法来实现 水平垂直布局
+// .container {
+//     display: grid;
+//     justify-items: center;
+//     align-items: center;
+// }
+
+// 另一种 grid方式  容器 display： grid, 项目直接用 margin:auto, 也可以实现水平处置居中布局
+// .container {
+//     display: grid
+// }
+// .item {
+//     margin: auto
+// }
+
+//  通过 flex方法 实现水平垂直布局
+// .container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// 与 grid类似， flex也可以 只通过对项目设置 margin: auto 实现居中布局
+// .container {
+//     display: flex;
+// }
+// .item {
+//     margin: auto;
+// }
+
+
+// 绝对定位
+// 如果 不给container 加上 position: relative, 那么三个元素都会相对于body 定位，从而导致三个元素都定位在中间
+.container {
+    position: relative;
+}
+.item {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.item {
+    padding: 1rem;
+    border: 1px solid #999;
+}
+  
+.container {
+    height: 12rem;
+    background: #ccc;
+    margin: 1rem;
+}
