@@ -1,0 +1,61 @@
+// 通过flex布局来实现左侧固定，右侧自适应  
+// flex 属性是 flex-grow, flex-shrink, flex-basis 三个属性的简写
+// flex-grow: 定义的是这一项分配剩余空间内的比例
+// flex-shrink: 但项的默认宽度大于剩余空间时，如何收缩
+// flex-shrink: 项目的默认大小
+// .container {
+//     display: flex;
+// }
+
+// .left {
+//     width: 300px;
+// }
+
+// .right {
+//     flex: 1 1; 
+// }
+
+// 另一种写法
+// .container {
+//     display: flex;
+// }
+// .left {
+//     flex-basis: 300px; // 设置左边的基础大小
+//     flex-shrink: 0; //宽度不够了 也不缩小
+// }
+// .right {
+//     flex-grow: 1; // 将剩余的空间以一比一的比例全占
+// }
+
+
+// grid 网格布局
+// .container {
+//     display: grid;
+//     grid-template-columns: 300px 1fr;
+// }
+
+// calc计算
+.left {
+    width: 300px;
+}
+.right {
+    width: calc(100% - 300px);
+}
+
+
+
+
+// container 和 left, right的基本属性
+.container {
+    margin-bottom: 2rem;
+    background-color: #efefef;
+    height: 300px;
+}
+
+.left {
+    border: 1px solid #888;
+}
+
+.right {
+    border: 1px solid #888
+}
