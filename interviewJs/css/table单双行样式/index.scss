@@ -1,0 +1,18 @@
+// nth-child(an+b)  n = 0,1,2,3,4...
+// 偶数行
+tr:nth-child(2n) {
+    background-color: blue;
+}
+// 奇数行
+tr:nth-child(2n+1){
+    background-color: red;
+}
+
+// 前三行
+// tr:nth-child(-n+3) {
+//     background-color: green;
+// }
+// 后三行
+// tr:nth-last-child(-n+3) {
+//     background-color: yellow;
+// }
