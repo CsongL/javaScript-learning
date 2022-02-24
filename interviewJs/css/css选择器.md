@@ -19,6 +19,39 @@
 * 一般兄弟组合器(~), eg A ~ B B在A的后面且B与A都在同一个父节点下的所有B元素
 * 紧邻兄弟组合器(+), eg A + B B紧跟在A的后面，且A与B同在一个父节点下，但是只选紧邻的那一个B元素
 
+```html
+<div class="container">
+  <p class="p-text">sub<p>
+  <div clas="subContainer">
+    <p class="p-text">second-sub</p>
+    <p class="p-sub-text">sub sub text</p>
+  </div>
+    <p class="p-sub-text">sub second text</p>
+  <p class="p-sub-text">sub third text</p>
+</div>
+<p class="p-sub-text">do not in same parent element</p>
+```
+
+```css
+/*父元素内的所有子元素*/
+.container .p-text {
+  color: red;
+}
+
+/*父元素的直接子元素*/
+.container > .p-text {
+  color: green;
+}
+
+/*一般兄弟组合器*/
+.p-text ~ .p-sub-text {
+  color: pink;
+}
+/*紧邻兄弟组合器*/
+.p-text + .p-sub-text {
+  color: blue;
+}
+```
 ### 伪选择器
 
 * 伪类选择器(:hover)
