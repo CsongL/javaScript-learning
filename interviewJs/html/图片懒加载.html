@@ -43,6 +43,7 @@
           const images = documnet.querySelectorAll("img");
           const lazyLoad = () => {
               images.forEach((item) => {
+                  console.log()
                   // 通过元素的getBdouningClientRect()方法获取该元素距离视图窗口顶部的距离，但离视图窗口还有100px时，开始加载图片
                   if(item.getBoundingClientRect().top < document.documentElement.clientHeight + 100){
                       if("src" in item.dataset) {
