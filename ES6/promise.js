@@ -98,6 +98,6 @@ Promise.resolve('basic data style').then((response) => {
 
 // 第四种 没有任何参数， 就直接返回一个resolve状态的Promise实例对象
 
-// Promise.rejce() 与Promise.resolve()类似 ，只不过返回的Promise实例对象的状态是 rejected
+// Promise.reject() 与Promise.resolve()类似 ，只不过返回的Promise实例对象的状态是 rejected
 
 
