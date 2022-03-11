@@ -185,3 +185,19 @@ for(let node of inOrder(tree)) {
 }
 
 console.log(treeResult);
+
+//  因为执行生成器函数最终会得到一个迭代器对象，所以我们可以把这个迭代器对象看成是这个生成器函数的实例对象
+// 因此 这个迭代器对象 也就 能够调用这个生成器函数原型上的对象
+function* generateObject(){
+    console.log('generator function');
+};
+
+generateObject.prototype.hello = function() {
+    return 'hello';
+};
+
+let instanceObject = generateObject();
+
+console.log(instanceObject.hello());
+
+// 但是生成器函数不能像构造函数那样 用 new 命令去执行, 只能向普通函数一样执行
