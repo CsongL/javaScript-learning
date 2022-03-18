@@ -59,3 +59,45 @@ Foo.speak();
 let foo = new Foo();
 foo.hello();
 console.log('类的静态属性', Foo.count);
+
+// 继承
+// 子类本身的__proto__指针指向的是父类本省
+// 子类的prototype属性所对应的原型对象的__proto__指针指向的是父类的prototype属性所对应的原型对象
+// 子类的原型对象相当于就是父类原型对象的实例对象
+class A {
+
+}
+
+class B extends A{
+
+}
+
+console.log(B.__proto__ === A);
+console.log(B.prototype.__proto__ === A.prototype);
+
+
+//Mixins
+function mixin(...mixins) {
+    class Mixin {
+        constructor() {
+            for(let mixin of mixins) {
+                copyProperties(this, new mixin());
+            }
+        }
+    }
+
+    for(let mixin of mixins) {
+        copyProperties(Mixin, mixin); // 复制静态属性
+        copyProperties(Mixin.prototype, mixin.prototype); // 复制原型对象上的属性
+    }
+    return Mixin;
+}
+
+function copyProperties(target, source) {
+    for(let key of Reflect.ownKeys(source)) {
+        if(key !== 'constructor' && key !== 'name' && key !== 'prototype'){
+            let desc = Object.getOwnPropertyDescriptor(source, key);
+            Object.defineProperty(target, key, desc);
+        }
+    }
+}
