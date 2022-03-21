@@ -2,7 +2,7 @@
 Cookie SessionStorage LocalStorage的不同
 ## 生命周期不同
 * Cookie: 通过设置Max-age和Experis来设置过期时间，如果没有设置，那么在浏览器关闭时会被清除
-* LocalStorage: 只有在手动清除的时候才会被清除，否则永久保存
+* LocalStorage: 只有在手动清除的时候才会被清除，否则永久保存，主要是做持久化保存
 * SessionStorage: 只有在当前页面或当前标签页时才有用, 如果关闭当前页面或当前标签页则存储的数据会失效
 
 ## 存储的数据大小不同
@@ -15,9 +15,8 @@ Cookie SessionStorage LocalStorage的不同
 
 ## 数据共享
 * Cookie 根据samesite属性来判断是否应该将cookie放在相应的http请求上
-* LocalStorage: 同一浏览器的不同页面或标签页之间可以共享LocalStorage内的数据
-* SessionStorage: 因为SessionStorage是在当前页面或当前标签页下，所以不能再不同的页面或标签页下共享。 一个网站在同一个浏览器打开两个域名端口相同的页面，这两个页面之间可以共享SessionStorage
-(上面所说的不同的页面是指页面域名不同端口不同，如果页面的域名相同，端口相同那么还是属于同一个页面)
+* LocalStorage:  同意浏览器下的同源页面或同源标签页之间可以共享LocalStorage内的数据，非同源的页面之间不能共享LocalStorage
+* SessionStorage: 因为SessionStorage是在当前页面或当前标签页下，所以不能再在不同的页面或标签页下共享。即使是同源的页面或同源标签页 
 
 不同的浏览器之间是不能共享任何数据的
 
