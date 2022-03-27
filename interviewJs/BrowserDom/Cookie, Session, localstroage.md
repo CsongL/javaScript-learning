@@ -15,7 +15,7 @@ Cookie SessionStorage LocalStorage的不同
 
 ## 数据共享
 * Cookie 根据samesite属性来判断是否应该将cookie放在相应的http请求上
-* LocalStorage:  同意浏览器下的同源页面或同源标签页之间可以共享LocalStorage内的数据，非同源的页面之间不能共享LocalStorage
+* LocalStorage:  同一浏览器下的同源页面或同源标签页之间可以共享LocalStorage内的数据，非同源的页面之间不能共享LocalStorage
 * SessionStorage: 因为SessionStorage是在当前页面或当前标签页下，所以不能再在不同的页面或标签页下共享。即使是同源的页面或同源标签页 
 
 不同的浏览器之间是不能共享任何数据的
