@@ -31,7 +31,7 @@ history.replaceState(状态对象， 标题， url) 该方法是修改了当前�
 #### popstate事件触发条件
 popstate 事件不能被history.pushState() 和 history.replaceState()触发，而是会被 history.back(), history.forward(), history.go()所触发或者对应的浏览器前进，后退等操作触发
 
-简单的说就是我们通过history.pushState()和history.replaceState()这两个方法所创建或修改的历史记录条目 在激活的状态下被通过一些方式修改后，会触发popstate事件，从而我们可以监听这个事件 并且这个事件的state属性是我们所创建或修改的历史记录的条目的拷贝，从而我们可以通过state属性进行一些操作 
+简单的说就是我们通过history.pushState()和history.replaceState()这两个方法所创建或修改的历史记录条目 在激活的状态下通过一些方式被修改后，会触发popstate事件，从而我们可以监听这个事件 并且这个事件对象的state属性是我们所创建或修改的历史记录的条目的拷贝，从而我们可以通过state属性进行一些操作 
 
 //eg
 ```javascript
