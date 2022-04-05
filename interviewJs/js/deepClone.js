@@ -36,10 +36,10 @@ const isType = (obj, type) => {
         flag = false;
     }
     return flag;
-  };
+};
 
-  let a = {
-      "zz": 2,
-      "test": [1,2,3]
-  }
-  console.log(deepClone(1));
+let a = {
+    "zz": 2,
+    "test": [1,2,3]
+}
+console.log(deepClone(1));
