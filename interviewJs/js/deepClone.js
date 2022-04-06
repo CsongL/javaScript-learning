@@ -9,7 +9,7 @@ function deepClone(object){
     }else if(isType(object, 'RegExp')){
         clone = new RegExp(object.source, getRegExp(object));
         if(object.lastIndex) clone.lastIndex = object.lastIndex;
-    }else{
+    }else{  
         clone = Object.create(Object.getPrototypeOf(object));
     }
     for(let i in object){
