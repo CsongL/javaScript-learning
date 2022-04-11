@@ -2,8 +2,38 @@
 
 ![img](../../images/loadscriptfile.png)
 
+
+## html文件中<script>标签的位置
+通常在html文件中，script标签可以放在head标签和body标签中，可以通过script标签的src引入外部js文件，也可以直接在script标签中写js代码
+但是通常我们将script标签放在body标签内部的最后，因为如果将script标签放在head标签内，那么下载，解析，执行js代码的时候页面的渲染会被阻塞，只有当js文件全都被下载，解析，执行完后，页面才会开始渲染，所以通常将script标签放在body标签内部的最后
+
+```html
+<html>
+    <head>
+        <script src="js文件路径"></script>
+        <script>
+            function test() {
+                alert("hello world");
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            test
+        </div>
+        <!-- 其他html标签 -->
+        <!-- 放在body的最后面 -->
+        <script src="js文件路径"></script>
+        <script>
+            function test() {
+                alert("hello world");
+            }
+        </script>
+    </body>
+</html>
+```
 ## html文件加载脚本的过程
-在`<script></script>`标签不加任何的修饰符的情况下, 脚本加载的情况：
+在`<script></scrip>`标签不加任何的修饰符的情况下, 脚本加载的情况：
     1. 脚本加载分为三个阶段， **加载， 解析， 执行**，在通常情况下这三个阶段都会阻塞DOM渲染，因此一般都放到最后进行
     2. 加载对应的就是图中的fetch， 解析和执行脚本就对应图中的execution
 
@@ -17,7 +47,7 @@
 ```html
 <html>
     <body>
-        <script type="text/javascript" src="./defer.js" defer></script>
+        <script type="text/javascript" src="./defer.js" defer></scrip>
         <script type="text/javascript" src="./async.js" async></script>
         <script>
             console.log('start')

@@ -12,8 +12,32 @@
 //     display: grid
 // }
 // .item {
-//     margin: auto
+//     margin: auto // margin: auto => 表示 左右外边距平分剩余的空间，上下外边距也会平分剩余的空间
+                    // margin-left: auto; => 一侧设置auto, 一侧没有设置auto，那么设置auto那侧可以分配所有的剩余空间，
+                                        // 所以说margin-left的值就是所有的剩余空间
+
 // }
+// margin-left: auto; margin-right: auto; 可以实现水平方向的居中定位，但是要注意要设置元素的宽度
+// 因为auto指的是容器中剩余空间，如果不设置项目的宽度，那么项目就会填充整个容器的宽度，从而就没有剩余的宽度了
+
+// 如果想通过margin:auto实现垂直方向上的居中，那么可以使用绝对定位
+// div  {
+//     background: #FF0000;
+//     width: 200px;
+//     height: 200px;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     margin: auto; // 水平方向评分剩余空间，垂直方向平分剩余空间
+// }
+// 在普通的文档流中，如果使用margin:auto；那么效果就是类似于 margin: 0 auto; 上下为0，左右平分
+// 通过绝对定位，将该div元素从普通文档流中抽取出来，形成一个新的图层
+// 在通过top: 0, left: 0, bottom: 0, right:0 来实现将新的图层的大小设置为与之前所在的图层大小一致
+// 之后再设置元素的宽度与高度，从而在新的图层中在垂直方向与水平方向都有了剩余距离
+// 从而实现了水平垂直居中
+
 
 //  通过 flex方法 实现水平垂直布局
 // .container {
