@@ -18,7 +18,7 @@ function getMaxHtmlElement() {
 // 通过element.children 递归获取元素对象
 function getElementArray(el = document) {
     let tags = Array.from(el.children).reduce(
-        (x, y) => [...x, getElementArray(y)], {}
+        (x, y) => [...x, getElementArray(y)], []
     );
     return tags;
 }
