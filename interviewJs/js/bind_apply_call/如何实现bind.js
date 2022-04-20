@@ -7,7 +7,7 @@ Function.prototype.fakeBindCall = function(obj, ...args) {
 Function.prototype.fakeBind = function(o) {
     const self = this, boundBinds = arguments;
     return function() {
-        let i, args = [];
+        let args = [];
         for(let i =1; i < boundBinds.length; i++) {
             args.push(boundBinds[i]);
         }

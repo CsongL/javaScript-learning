@@ -17,7 +17,7 @@
 可以通过 `document.doctype`来获取当前文档的类型，返回的是一个DocumentType对象,如果该文档没有声明DOCTYPE, 那么就返回null
 
 ## meta
-`<meta>`是出现在<head>中的一个标签, 它是由name和content两个属性来定义的，用来描述一个HTML网页的元信息。 例如作业，日期，时间，网页描述等
+`<meta>`是出现在<head>中的一个标签, 它是由name和content两个属性来定义的，用来描述一个HTML网页的元信息。 例如作者，日期，时间，网页描述等
 
 ## name属性可能取得的值：
 * author: 这个html文档的作业  `<meta name="author" content="xxx">`
