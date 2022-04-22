@@ -27,3 +27,7 @@ const mySettledPromise = (items) => {
         items.map((item) => Promise.resolve(item).then(onResolved, onRejected))
     );
 };
+
+Promise.allSettled([Promise.resolve('123'), Promise.reject('456')]).then((result) => {
+  console.log(result);
+})
