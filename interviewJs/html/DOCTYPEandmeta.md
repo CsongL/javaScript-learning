@@ -20,7 +20,7 @@
 `<meta>`是出现在<head>中的一个标签, 它是由name和content两个属性来定义的，用来描述一个HTML网页的元信息。 例如作者，日期，时间，网页描述等
 
 ## name属性可能取得的值：
-* author: 这个html文档的作业  `<meta name="author" content="xxx">`
+* author: 这个html文档的作者  `<meta name="author" content="xxx">`
 * description: 网页描述 `<meta name="description" content="xxx">`
 * referrer：可以控制从该文档发出的HTTP请求中的HTTP Referer头的值
 * charset：网页编码形式 `<meta charset="utf-8">`
