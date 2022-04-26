@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .container {
+            display: flex;
+        }
+        .container > div {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="height: 100px"></div>
+        <div style="min-height: 10px"></div> 
+    </div>
+</body>
+
+<!-- 
+    container中第二个容器的高度 其实也是 100px， 当我们没有设置块级元素的高度时，他会充满整个父级容器
+    因为我们定义了第一个div的高度为100px, 因此第二个最高也就100px
+    只有当设置容器的高度小于最小高度，那么此时容器的高度会被设置为最小高度的值
+-->
