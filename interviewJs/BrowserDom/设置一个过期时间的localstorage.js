@@ -2,7 +2,7 @@
 // 可以自己封装一个带有过期时间的localStorage
 function initLocalStorage() {
     localStorage.setItem = function(key, value, time = 1000) {
-        let expiresTime = Date.now + time * 1000;
+        let expiresTime = Date.now() + time * 1000;
         const data = {
             __data: value,
             __expiresTime: expiresTime
