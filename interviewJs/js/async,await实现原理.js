@@ -15,7 +15,7 @@ function spawn(genFn){
         function step(nextFn) {
             let next;
             try {
-                next = nextFn;
+                next = nextFn();
             } catch(e) {
                 return reject(e);
             }
