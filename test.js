@@ -1,6 +1,21 @@
-for(var i = 0; i < 5; i++) {
-    setTimeout(() => console.log(i), 1000);
+let obj1 = {
+    name: 'cai'
 }
-for(let i = 0; i < 5; i++) {
-    setTimeout(() => console.log(i), 1000);
+
+let obj = {
+    name: 'meng'
 }
+
+function returnArrowFn() {
+    return () => {
+        console.log(this.name);
+    };
+}
+
+const arrowFn = returnArrowFn.call(obj1);
+
+arrowFn();
+
+const arrowFn1 = returnArrowFn.call(obj);
+
+arrowFn1();
