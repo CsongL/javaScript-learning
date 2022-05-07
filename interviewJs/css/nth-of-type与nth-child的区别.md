@@ -10,7 +10,7 @@ eg:
 ```html
 
 ```css
-p:nth-child(2){
+p:nth-child(2) {
   color: red;
 }
 p:nth-of-type(2) {
