@@ -13,3 +13,17 @@ let person = {
 };
 
 display.myCall(person, 'args');
+
+
+// 不依赖apply实现call
+Function.prototype.fakeCall = function(ctx, ...args) {
+    let fn = this;
+    if(typeof fn !== 'function') throw new Error("must is function");
+    let key = Symbol('tempKey');
+    ctx[key] = fn;
+    let result = ctx[key](...args);
+    delete ctx[key];
+    return result;
+}
+
+display.fakeCall(person, 'args');
