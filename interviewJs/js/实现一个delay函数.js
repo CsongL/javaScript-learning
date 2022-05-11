@@ -10,4 +10,4 @@ function delay(func, seconds, ...args) {
     return new Promise((resolve, reject) => {
         Promise.resolve(func(...args)).then(resolve).catch(reject);
     })
-}
+} 
