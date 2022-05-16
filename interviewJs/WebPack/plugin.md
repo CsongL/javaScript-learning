@@ -1,13 +1,14 @@
 ## loader(预处理器)
 loader其实就是根据rules中的test来匹配不同的文件, 如果匹配了就会调用use中的loader从后往前调用执行来将对应的文件类型转换为js文件类型
 因为 webpack最终只能处理js文件
+所以 loader的作用就是 用来处理其他类型的文件，并将其他类型的语言转换为js语言
 
 
 ## Plugin
 
 Webpack运行的生活周期中会广播许多事件，Plugin可以监听这些事件，在适当的时机通过Webpack提供的API改变输出结果。十分灵活
 
-大致流程：Webpack启动后，在读取配置的过程中会先 new xxxPlugin(option), 初始化 Plugin 并获得其实例。在初始化 compiler 对象后，再通过调用 Plugin实例d对象的 apply(compiler)(xxxPlugin.apply(compiler)) 为插件传入 compiler对象，之后Plugin就能通过complier.plugin('事件名', 回调函数)方法, 在webpack的生命周期里面添加回调函数、监听到webpack广播的事件，并可以通过compiler对象去操作webpack。
+大致流程：Webpack启动后，在读取配置的过程中会先 new xxxPlugin(option), 初始化 Plugin 并获得其实例。在初始化 compiler 对象后，再通过调用 Plugin实例对象的 apply(compiler)(xxxPlugin.apply(compiler)) 为插件传入 compiler对象，之后Plugin就能通过complier.plugin('事件名', 回调函数)方法, 在webpack的生命周期里面添加回调函数、监听到webpack广播的事件，并可以通过compiler对象去操作webpack。
 网上自定义的一个简单plugin代码
 ```javascript
 // webpack.config.js   

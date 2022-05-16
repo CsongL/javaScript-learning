@@ -1,6 +1,6 @@
-// 对于 Promise 的 resolve(X)函数, 如果 X是一个Promise实例对象，那么在执行之后的then()执行，会多添加两个microTask
+// 对于 Promise 的 resolve(X)函数, 如果 X是一个Promise实例对象，那么在执行之后的then()之前，会多添加两个microTask
 // 并且这两个MicroTask是分开执行的
-// 第一个微任务是更具PromiseA+的规范 
+// 第一个微任务是根据PromiseA+的规范 
 // 即 如果resolve()函数的参数是一个promise实例对象，那么需要进行一个同步状态的操作
 // 代码如下， 其中X表示的就是resolve()函数中作为参数的promise实例对象,
 // 其中this指向的就是 我们遇到then()方法时所创建的那个处于pending状态的实例对象

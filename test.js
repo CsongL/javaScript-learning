@@ -1,21 +1,16 @@
-let obj1 = {
-    name: 'cai'
+function fakeInstanceOf(obj, constructor) {
+  const proto = constructor.prototype;
+  while(true) {
+    if(!obj) {
+      return false;
+    }
+    if(Object.is(obj, proto)) {
+      return true;
+    }
+    obj = Object.getPrototypeOf(obj);
+  }
 }
 
-let obj = {
-    name: 'meng'
-}
-
-function returnArrowFn() {
-    return () => {
-        console.log(this.name);
-    };
-}
-
-const arrowFn = returnArrowFn.call(obj1);
-
-arrowFn();
-
-const arrowFn1 = returnArrowFn.call(obj);
-
-arrowFn1();
+console.log(fakeInstanceOf([], Array));
+console.log(fakeInstanceOf({}, Object));
+console.log(fakeInstanceOf(Number(1), Number));
