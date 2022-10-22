@@ -101,4 +101,57 @@ ajax({
 ```
 
 
+```js
+// package the ajax function into a promise
+
+const getQueriesByObject = (queries, prefix = '') => {
+    Object.entries(queries).reduce((prev, [key, value]) => prev += `${key}=${value}`, prefix).slice(0, -1);
+}
+
+const ajax = (type = "get") => (url = '', data, extraOptions = {}) => {
+    return new Promise((resolve, reject) => {
+        const defaultProps = { async: true, context-type: "application/x-www-form-urlencoded"} 
+        const props = {...defaultProps, ...extraOptions};
+        const { async, baseUrl, queries = {}, header } = props;
+
+        const xhr = new XMLHttpRequest();
+
+        // create the url
+        if(!url.includes("http")) {
+            url = `${baseUrl || window.location.origin}${url}`;
+        }
+        if(type === "get") {
+            url = getQueriesByObject(queries, `${url}?`);
+        }
+
+        // set the header
+        Object.entries(header).forEach(([key, value]) => {
+            xhr.setRequestHeader(key, value);
+        })
+
+        xhr.open(type, url, async);
+
+
+        // send the data
+        data ? xhr.send(data) : xhr.send();
+
+        // get the response result
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === 4) {
+                if(xhr.status === 200) {
+                    return resolve(xhr.response);
+                }
+                reject(xhr.response);
+            }
+        }
+    })
+}
+
 ```
+
+***步骤***：
+1. 创建xmlHttpRequest的实例对象，
+2. 构造请求发送的url， 如果是get请求，还要加上相应的请求参数，queries
+3. 设置请求头，调用open()方法，建立链接
+4. 发送相应的请求数据，
+5. 判断服务端所返回的响应的状态，从而获得相应的响应数据
