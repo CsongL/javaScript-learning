@@ -22,3 +22,17 @@ const { cancel } = myTimeInterval(() => {
 setTimeout(() => {
     cancel();
 }, 4000);
+
+
+const myTimeout = (fn, delay) => {
+    let timer = null;
+    timer = setInterval(() => {
+        fn();
+        clearInterval(timer);
+    }, delay);
+};
+
+
+myTimeout(() => {
+    console.log(999);
+}, 1000);
