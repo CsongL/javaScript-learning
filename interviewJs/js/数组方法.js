@@ -110,6 +110,34 @@ Array.prototype.sl_findIndex = function (callBack) {
 console.log(player.sl_findIndex((item) => item.name === "姚明"));
 
 
+// find method which is used to find the element that we need
+Array.prototype.sl_find = function (callBack) {
+    for (let i = 0; i < this.length; i++) {
+        if (callBack(this[i], i, this)) {
+            return this[i];
+        }
+    }
+    return undefined;
+};
+
+console.log(player.find((item) => item.name == "姚明"));
+
+// fill method, three parameters: item, index, array
+Array.prototype.sl_fill = function (value, start = 0, end) {
+    end = end || this.length;
+    for (let i = start; i < end; i++) {
+        this[i] = value;
+    }
+    return this;
+};
+
+// console.log(player.sl_fill('csl', 1, 2));
+
+
+
+
+
+
 
 
 
