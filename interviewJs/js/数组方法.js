@@ -168,6 +168,7 @@ Array.prototype.sl_splice = function (start, length, ...values) {
         this[i] = values[i - start];
     }
 
+    // if the length of insert value less than the length of values we delete
     if (values.length < length) {
         let diff = length - values.length;
         for (let i = start + values.length; i < tempArr.length; i++) {
@@ -176,6 +177,7 @@ Array.prototype.sl_splice = function (start, length, ...values) {
         this.length = tempArr.length - diff;
     }
 
+    // if the length of insert value bigger than the length of values we delete
     if (values.length > length) {
         for (let i = start + length; i < tempArr.length; i++) {
             this.push(tempArr[i]);
