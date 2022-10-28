@@ -131,9 +131,65 @@ Array.prototype.sl_fill = function (value, start = 0, end) {
     return this;
 };
 
-// console.log(player.sl_fill('csl', 1, 2));
+console.log([1,2,3,4].sl_fill('csl', 1, 2));
 
+// join method： use join method to connect the item in the arr
+Array.prototype.sl_join = function (separator = ',') {
+    let str = '';
+    for (let i = 0; i < this.length; i++) {
+        str = i === 0 ? `${str}${this[i]}` : `${str}${separator}${this[i]}`;
+    }
+    return str;
+};
 
+console.log([1, 2, 3, 4].join('*'));
+
+// flat method: use the method to flat the array;
+Array.prototype.sl_flat = function (count = Infinity) {
+    let arr = this;
+    let num = 0;
+    while (arr.some((item) => Array.isArray(item))) {
+        arr = [].concat(...arr);
+        num++;
+        if (num >= count) break;
+    }
+    return arr;
+};
+
+console.log([1, 2, [3, 4, [5]], [6, 7]].sl_flat(1));
+
+Array.prototype.sl_splice = function (start, length, ...values) {
+    if (length === 0) return [];
+    length = start + length > this.length - 1 ? this.length - start : length;
+    const res = [], tempArr = [...this];
+
+    // replace the item in the original arr by the value in the values arr;
+    for (let i = start; i < start + values.length; i++) {
+        this[i] = values[i - start];
+    }
+
+    if (values.length < length) {
+        let diff = length - values.length;
+        for (let i = start + values.length; i < tempArr.length; i++) {
+            this[i] = tempArr[i + diff];
+        }
+        this.length = tempArr.length - diff;
+    }
+
+    if (values.length > length) {
+        for (let i = start + length; i < tempArr.length; i++) {
+            this.push(tempArr[i]);
+        }
+    }
+    for (let i = start; i < start + length; i++) {
+        res.push(tempArr[i]);
+    }
+
+    return res;
+};
+
+const testSplice = [1, 2, 3, 4];
+console.log(testSplice.sl_splice(1, 2, 5), testSplice, testSplice.length);
 
 
 
